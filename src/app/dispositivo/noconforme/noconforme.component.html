@@ -1,0 +1,132 @@
+<div>
+  <h2 style="text-align: center;">REGISTRO DE PRODUCTO NO CONFORME</h2>
+  <h6 style="text-align: center;">PO-0002/R02</h6>
+  <div  *ngFor="let disp of data.dispositivos">
+  <table width="90%" align="center" *ngIf="disp.control==false" border="1px">
+    <tr>
+      <td colspan="2"><b>Modelo: </b>{{data.marca}}</td>
+      <td colspan="2"><b>IMEI: </b>{{disp.imei}}</td>
+    </tr>
+    <tr>
+      <th>ACCESORIOS</th>
+      <th>OBSERVACIONES</th>
+      <td>Tornillos</td>
+      <td>{{disp.otornillos}}</td>
+    </tr>
+    <tr>
+      <td>Caja</td>
+      <td>{{disp.ocaja}}</td>
+      <td>Vibrador</td>
+      <td>{{disp.ovibrador}}</td>
+    </tr>
+    <tr>
+      <td>Carcasa</td>
+      <td>{{disp.ocarcasa}}</td>
+      <td>Auricular</td>
+      <td>{{disp.oauricular}}</td>
+    </tr>
+    <tr>
+      <td>Tapa Posterior</td>
+      <td>{{disp.otapaposterior}}</td>
+      <td>Altavoz</td>
+      <td>{{disp.oaltavoz}}</td>
+    </tr>
+    <tr>
+      <td>Batería</td>
+      <td>{{disp.obateria}}</td>
+      <td>Micrófono</td>
+      <td>{{disp.omicrofono}}</td>
+    </tr>
+    <tr>
+      <td>Conector,lector de SIM</td>
+      <td>{{disp.oconectordesim}}</td>
+      <td>Timbre</td>
+      <td>{{disp.otimbre}}</td>
+    </tr>
+    <tr>
+      <td>Antena</td>
+      <td>{{disp.oantena}}</td>
+      <td>Teclado Volúmen</td>
+      <td>{{disp.otecladovolumen}}</td>
+    </tr>
+    <tr>
+      <td>Cargador</td>
+      <td>{{disp.ocargador}}</td>
+      <td>Teclado (Key Pad)</td>
+      <td>{{disp.oteclado}}</td>
+    </tr>
+    <tr>
+      <td>Adaptador (Carg. Mem)</td>
+      <td>{{disp.oadaptador}}</td>
+      <td>Touch</td>
+      <td>{{disp.otouch}}</td>
+    </tr>
+    <tr>
+      <td>Manos Libres</td>
+      <td>{{disp.omanoslibres}}</td>
+      <td>Tecla ON/OFF</td>
+      <td>{{disp.oteclaonoff}}</td>
+    </tr>
+    <tr>
+      <td>Memoria Expandible</td>
+      <td>{{disp.omemoriaexpandible}}</td>
+      <th>SOFTWARE</th>
+      <th>OBSERVACIONES</th>
+    </tr>
+    <tr>
+      <td>Manual de Usuario</td>
+      <td>{{disp.omanualdeusuario}}</td>
+      <td>Video</td>
+      <td>{{disp.ovideo}}</td>
+    </tr>
+    <tr>
+      <td>Guía Rápida</td>
+      <td>{{disp.oguiarapida}}</td>
+      <td>Radio FM</td>
+      <td>{{disp.oradiofm}}</td>
+    </tr>
+    <tr>
+      <td>CD datos</td>
+      <td>{{disp.ocddatos}}</td>
+      <td>Idioma</td>
+      <td>{{disp.oidioma}}</td>
+    </tr>
+    <tr>
+      <td>Cable USB</td>
+      <td>{{disp.ocableusb}}</td>
+      <td>Internet</td>
+      <td>{{disp.ointernet}}</td>
+    </tr>
+    <tr>
+      <th>HARDWARE</th>
+      <th>OBSERVACIONES</th>
+      <td>Bluetooth</td>
+      <td>{{disp.obluetooth}}</td>
+    </tr>
+    <tr>
+      <td>Led Flash</td>
+      <td>{{disp.oledflash}}</td>
+      <td>Fallas de Software</td>
+      <td>{{disp.ofallassoftware}}</td>
+    </tr>
+    <tr>
+      <td>Cámara Primaria</td>
+      <td>{{disp.ocamaraprimaria}}</td>
+      <th>RADIO FRECUENCIA</th>
+      <th>OBSERVACIONES</th>
+    </tr>
+    <tr>
+      <td>Display</td>
+      <td>{{disp.odisplay}}</td>
+      <td>Señal RF</td>
+      <td>{{disp.orf}}</td>
+    </tr>
+    <tr>
+      <td>Otras Observaciones</td>
+      <td>{{disp.otrasobs}}</td>
+    </tr>
+  </table>
+  <div class="saltoDePagina"></div>
+  <br>
+</div>
+</div>

@@ -1,1 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+.input-full-width{
+    width: 100%;
+}
+.input-50-width{
+    width: 50%;
+}
+.input-25-width{
+    width: 25%;
+}
+body{
+    margin: 0px;
+    background-color: lightgray;
+}
+.content{
+    max-width: 96%;
+    margin-left: auto;
+    margin-right: auto;
+    /*background-color: white;*/
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+table{
+    width: 100%;
+}
+@media print{
+    #imprimir {
+        display: block;
+    }
+    .saltoDePagina{
+        display:block;
+        page-break-before:always;
+    }
+}

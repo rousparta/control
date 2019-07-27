@@ -1,0 +1,15 @@
+<h3 mat-dialog-title>Cambio de contraseña
+  <button mat-button mat-dialog-close>X</button>
+</h3>
+<mat-dialog-content>
+  <form role="form" (submit)="guardar()">
+    <mat-form-field class="input-full-width">
+      <input matInput placeholder="Nueva contraseña" required [(ngModel)]="pass.nuevo" name="nuevo">
+    </mat-form-field>
+    <mat-form-field class="input-full-width">
+      <input matInput placeholder="Nueva contraseña" required [(ngModel)]="pass.nuevo2" name="nuevo2">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">Guardar</button>
+  </form>
+</mat-dialog-content>

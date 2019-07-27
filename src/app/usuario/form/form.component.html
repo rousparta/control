@@ -1,0 +1,25 @@
+<h3 mat-dialog-title>{{titulo}}
+  <button mat-button mat-dialog-close>X</button>
+</h3>
+<mat-dialog-content>
+  <form role="form" (submit)="guardar()">
+    <mat-form-field class="input-full-width">
+      <input matInput placeholder="Usuario" required [(ngModel)]="user.usuario" name="usuario">
+    </mat-form-field>
+    <mat-form-field class="input-full-width">
+      <input matInput placeholder="Nombres" required [(ngModel)]="user.nombres" name="nombres">
+    </mat-form-field>
+    <mat-form-field class="input-full-width">
+      <input matInput placeholder="Apellidos" required [(ngModel)]="user.apellidos" name="apellidos">
+    </mat-form-field>
+    <mat-form-field class="input-full-width">
+      <mat-label>Rol</mat-label>
+      <mat-select [(ngModel)]="user.rol" name="rol">
+        <mat-option *ngFor="let rol of roles" [value]="rol">
+          {{rol}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit" [disabled]="user.usuario.trim()==''">Guardar</button>
+  </form>
+</mat-dialog-content>

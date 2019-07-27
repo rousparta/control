@@ -1,0 +1,22 @@
+<mat-toolbar color="primary" *ngIf="user.rol!='técnico'">
+  <span><img src="./../assets/logo8.jpeg" width="18%"></span>
+  <span  style="flex: 1 1 auto;"></span>
+  <button mat-button [routerLink]="['/lote']" [disabled]="opcion=='lote'">Lote</button>
+  <button mat-button [routerLink]="['/dispositivo']" [disabled]="opcion=='dispositivo'">Dispositivo</button>
+  <button *ngIf="user.rol=='administrador'" mat-button [routerLink]="['/usuario']" [disabled]="opcion=='usuario'">Usuarios</button>
+  <button mat-button [matMenuTriggerFor]="menu">{{user.usuario}}</button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="cambia()">Cambiar contraseña</button>
+    <button mat-menu-item (click)="salir()">Salir</button>
+  </mat-menu>
+</mat-toolbar>
+<mat-toolbar color="primary" *ngIf="user.rol=='técnico'">
+  <span>Cotec</span>
+  <span  style="flex: 1 1 auto;"></span>
+  <button mat-button [routerLink]="['/dispositivo']" [disabled]="opcion=='dispositivo'">Dispositivo</button>
+  <button mat-button [matMenuTriggerFor]="menu">{{user.usuario}}</button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="cambia()">Cambiar contraseña</button>
+    <button mat-menu-item (click)="salir()">Salir</button>
+  </mat-menu>
+</mat-toolbar>

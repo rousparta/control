@@ -1,0 +1,50 @@
+<div>
+  <div  *ngFor="let disp of data.dispositivos">
+    <div *ngIf="disp.control">
+    <table>
+      <tr>
+        <td>&nbsp;&nbsp;</td>
+        <td>&nbsp;&nbsp;</td>
+      </tr>
+      <br>
+      <br>
+    </table>
+
+    <table>
+      <tr>
+        <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+        <td COLSPAN="1" ALIGN="center">{{disp.nro}}</td>
+        <th>&nbsp;&nbsp;</th> 
+        <td>Peso Total:{{data.peso}}</td>
+      </tr>
+      <tr>
+        <th>&nbsp;&nbsp;</th>
+        <td COLSPAN="1" ALIGN="center">{{data.marca}}</td>
+        <th>&nbsp;</th>
+        <td>{{disp.voltBateria}}</td>
+      </tr>
+      <tr>
+        <th>&nbsp;&nbsp;</th>
+        <td COLSPAN="1" ALIGN="center">{{disp.imei}}</td>
+        <th>&nbsp;&nbsp;</th>
+        <td>{{disp.sensorBateria}}</td>
+      </tr>
+      <tr>
+        <th>&nbsp;&nbsp;</th>
+        <td COLSPAN="1" ALIGN="center"></td>
+        <th>&nbsp;&nbsp;</th>
+        <td>{{disp.rf}}</td>
+      </tr>
+      <tr>
+        <th>&nbsp;</th>
+        <td COLSPAN="1" ALIGN="center">{{ahora | date:('dd-MM-yyyy')}}</td>
+        <th>&nbsp;</th>
+        <td>{{disp.salCargador}}</td>
+      </tr>
+    </table>
+    <h2>             </h2>
+    <p>              </p>
+    <div class="saltoDePagina"></div>
+  </div>
+  </div>
+</div>

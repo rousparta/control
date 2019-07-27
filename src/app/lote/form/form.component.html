@@ -1,0 +1,55 @@
+<h3 mat-dialog-title>{{titulo}}
+    <button mat-button mat-dialog-close>X</button>
+  </h3>
+  <mat-dialog-content>
+    <form role="form" (submit)="guardar()">
+      <mat-form-field class="input-full-width">
+        <input matInput placeholder="Empresa contratista" required [(ngModel)]="lote.empresa" name="empresa">
+      </mat-form-field>
+      <mat-form-field class="input-full-width">
+        <input matInput placeholder="Código formulario" required [(ngModel)]="lote.formulario" name="formulario">
+      </mat-form-field>
+      
+      <mat-form-field class="input-50-width">
+        <input matInput [matDatepicker]="picker" placeholder="Fecha de entrega" required [(ngModel)]="lote.entrega" name="entrega">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field class="input-50-width">
+        <input matInput [matDatepicker]="picker2" placeholder="Fecha de devolución" required [(ngModel)]="lote.devolucion" name="devolucion">
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+      </mat-form-field>
+      
+      <mat-form-field class="input-50-width">
+        <input matInput placeholder="Marca y modelo" required [(ngModel)]="lote.marca" name="marca">
+      </mat-form-field>
+      <mat-form-field class="input-50-width">
+        <input matInput placeholder="Peso total" required [(ngModel)]="lote.peso" name="peso">
+      </mat-form-field>
+      
+      <mat-form-field class="input-50-width">
+        <input matInput placeholder="Cantidad total" required [(ngModel)]="lote.cantidad" name="cantidad" type="number" min="0" [disabled]="cambiar">
+      </mat-form-field>
+      
+      <mat-form-field class="input-50-width">
+        <input matInput placeholder="Proveedor" required [(ngModel)]="lote.proveedor" name="proveedor" type="text">
+      </mat-form-field>
+
+      <mat-form-field class="input-50-width">
+        <input matInput placeholder="Cantidad de Equipos en una Caja" required [(ngModel)]="lote.equipos" name="equipos" type="number" min="0" [disabled]="cambiar">
+      </mat-form-field>
+      <mat-form-field class="input-50-width">
+        <input matInput placeholder="Cantidad Total de Cajas" required [(ngModel)]="lote.cajas" name="cajas" type="number" min="0" [disabled]="cambiar">
+      </mat-form-field>
+
+      <mat-selection-list >
+        <mat-list-option *ngFor="let comp of componentes" (click)="select(comp)">
+          {{comp}}
+        </mat-list-option>
+      </mat-selection-list>
+
+      <button mat-raised-button color="primary" type="submit">Guardar</button>
+    </form>
+  </mat-dialog-content>

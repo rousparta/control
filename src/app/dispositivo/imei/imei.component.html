@@ -1,0 +1,56 @@
+<h3 mat-dialog-title>Gestionar caja
+  <button mat-button mat-dialog-close>X</button>
+</h3>
+<mat-dialog-content >
+  <form role="form">
+    <mat-form-field class="input-50-width">
+      <input matInput placeholder="Código de control base" required [(ngModel)]="cj.codigo" name="codigo" type="number" (blur)="cambiaC()">
+    </mat-form-field>
+    <mat-form-field class="input-50-width">
+      <input matInput placeholder="IMEI base" required [(ngModel)]="cj.imei" name="imei" type="number" (blur)="cambiaI()">
+    </mat-form-field>
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  
+      <!-- Position Column -->
+      <ng-container matColumnDef="nro">
+        <th mat-header-cell *matHeaderCellDef> Nro </th>
+        <td mat-cell *matCellDef="let element"> {{element.nro}}</td>
+      </ng-container>
+    
+      <!-- Name Column -->
+      <ng-container matColumnDef="codigo">
+        <th mat-header-cell *matHeaderCellDef> Código de Control </th>
+        <td mat-cell *matCellDef="let element" style="text-align: center"> 
+            <!--<mat-form-field class="input-50-width">
+              <input matInput placeholder="Código de control" required [(ngModel)]="element.codigo" name="codigo" type="number">
+            </mat-form-field>  
+          -->
+          {{element.codigo}}
+        </td>
+      </ng-container>
+    
+      <!-- Weight Column -->
+      <ng-container matColumnDef="marca">
+        <th mat-header-cell *matHeaderCellDef> Marca y modelo </th>
+        <td mat-cell *matCellDef="let element"> {{data.marca}} </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="imei">
+        <th mat-header-cell *matHeaderCellDef> IMEI </th>
+        <td mat-cell *matCellDef="let element">
+            <mat-form-field class="input-full-width">
+              <input matInput placeholder="IMEI" required [(ngModel)]="element.imei" name="imei" type="number" (keyup)="escribe($event.target.value, $event.code)">
+            </mat-form-field>  
+        </td>
+      </ng-container>
+        
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    
+
+    <button mat-raised-button color="primary" type="button" (click)="guardar()">Guardar y generar Código de caja</button>
+  </form>
+</mat-dialog-content>

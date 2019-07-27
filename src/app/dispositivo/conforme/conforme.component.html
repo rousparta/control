@@ -1,0 +1,51 @@
+<div>
+  <h2 style="text-align: center;">REPORTE DE CÁLCULO DE CONTROL DE CALIDAD</h2>
+  <h5 style="text-align: center;">PO-0002/R01</h5>
+  <div  *ngFor="let disp of data.dispositivos">
+  <table width="90%" align="center" *ngIf="disp.control" border="1px">
+    <tr>
+      <td>IMEI Equipo</td>
+      <td colspan="2">{{disp.imei}}</td>
+      <td>Cod. bateria</td>
+      <td>Eq</td>
+      <td>{{disp.eq}}</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td rowspan="4">{{disp.imei}}</td>
+      <td>Volt. Bateria</td>
+      <td>{{disp.voltBateria}}</td>
+      <td rowspan="4">{{disp.codigo}}</td>
+      <td>Mn</td>
+      <td>{{disp.mn}}</td>
+      <td>SW</td>
+      <td>{{disp.sw}}</td>
+    </tr>
+    <tr>
+      <td>Sensor Bat</td>
+      <td>{{disp.sensorBateria}}</td>
+      <td>HF</td>
+      <td>{{disp.hf}}</td>
+      <td>HW</td>
+      <td>{{disp.hw}}</td>
+    </tr>
+    <tr>
+      <td>Señal RF</td>
+      <td>{{disp.rf}}</td>
+      <td>Cr</td>
+      <td>{{disp.cr}}</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Salida Carg</td>
+      <td>{{disp.salCargador}}</td>
+      <td>2Gb</td>
+      <td>{{disp.gb2}}</td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+</div>
+</div>

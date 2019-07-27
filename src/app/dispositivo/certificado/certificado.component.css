@@ -1,0 +1,12 @@
+@media all {
+    div.saltopagina{
+       display: none;
+    }
+ }
+    
+ @media print{
+    div.saltopagina{ 
+       display:block; 
+       page-break-before:always;
+    }
+ }

@@ -1,0 +1,76 @@
+<app-menu [opcion]="lote"></app-menu>
+<div class="content">
+  <h2>Gestión de lotes <button mat-raised-button color="primary" (click)="add()"><mat-icon>add</mat-icon> Agregar</button></h2>
+  <mat-progress-bar color="primary" mode="indeterminate" *ngIf="!cargando"></mat-progress-bar>
+  
+  <mat-form-field *ngIf="cargando" class="input-full-width">
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+  
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" *ngIf="cargando">
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="nro">
+      <th mat-header-cell *matHeaderCellDef> No. </th>
+      <td mat-cell *matCellDef="let element"> {{element.nro}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="formulario">
+      <th mat-header-cell *matHeaderCellDef> No. Formulario </th>
+      <td mat-cell *matCellDef="let element"> {{element.formulario}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="empresa">
+      <th mat-header-cell *matHeaderCellDef> Empresa contratista </th>
+      <td mat-cell *matCellDef="let element"> {{element.empresa}} </td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="marca">
+      <th mat-header-cell *matHeaderCellDef> Marca y modelo </th>
+      <td mat-cell *matCellDef="let element"> {{element.marca}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="cantidad">
+      <th mat-header-cell *matHeaderCellDef> Cantidad </th>
+      <td mat-cell *matCellDef="let element"> {{element.cantidad}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="conforme">
+      <th mat-header-cell *matHeaderCellDef> Conformes </th>
+      <td mat-cell *matCellDef="let element"> {{element.conforme}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="noconforme">
+      <th mat-header-cell *matHeaderCellDef> No Conformes </th>
+      <td mat-cell *matCellDef="let element"> {{element.noconforme}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <!--<ng-container matColumnDef="tecnico">
+      <th mat-header-cell *matHeaderCellDef> Técnico </th>
+      <td mat-cell *matCellDef="let element"> <span *ngIf="element.tecnico==null">Por asignar</span><span *ngIf="element.tecnico!=null">{{element.tecnico.nombres}} {{element.tecnico.apellidos}}</span> </td>
+    </ng-container> -->
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="clave">
+      <th mat-header-cell *matHeaderCellDef> Acciones </th>
+      <td mat-cell *matCellDef="let element"> 
+          <button mat-button [matMenuTriggerFor]="menu"><mat-icon>more_vert</mat-icon></button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="editar(element)">Editar</button>
+            <!--button mat-menu-item (click)="asignar(element)">Asignar</button-->
+            <button *ngIf="element.codigo!=''" mat-menu-item (click)="barras(element)">Imprimir codigos</button>
+          </mat-menu>  
+      </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>

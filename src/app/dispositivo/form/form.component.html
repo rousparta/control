@@ -1,0 +1,185 @@
+<app-menu [opcion]="dispositivo"></app-menu>
+<div class="content">
+  <a mat-raised-button color="primary" href="/conformes" target="_new">Imprimir hojas de cálculo de control de calidad</a>
+  <a mat-raised-button color="primary" href="/noconformes" target="_new">Imprimir formulario de dispositivos no conformes</a>
+  <a mat-raised-button color="primary" href="/certificado" target="_new">Imprimir Certificados de Garantía</a>
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let disp of data.dispositivos">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <b>IMEI: </b>{{disp.imei}}
+          
+        </mat-panel-title>
+        <mat-panel-description style="justify-content: space-between;">
+          <b>Código: </b>{{disp.codigo}}
+          <mat-icon *ngIf="disp.control" color="primary">check_circle</mat-icon>
+          <mat-icon *ngIf="!disp.control" color="secondary">remove_circle_outline</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+  
+      <mat-tab-group>
+        <mat-tab label="Control de Calidad"> 
+          <mat-form-field class="input-25-width">
+            <input matInput placeholder="Voltaje de Bateria" required [(ngModel)]="disp.voltBateria" name="voltBateria" type="text">
+          </mat-form-field>
+          <mat-form-field class="input-25-width">
+            <input matInput placeholder="Sensor Bateria" required [(ngModel)]="disp.sensorBateria" name="sensorBateria" type="text">
+          </mat-form-field>
+          <mat-form-field class="input-25-width">
+            <input matInput placeholder="Señal RF" required [(ngModel)]="disp.rf" name="rf" type="text">
+          </mat-form-field>
+          <mat-form-field class="input-25-width">
+            <input matInput placeholder="Salida Cargador" required [(ngModel)]="disp.salCargador" name="salCargador" type="text">
+          </mat-form-field>
+
+          <mat-form-field class="input-25-width">
+            <input matInput placeholder="Eq" required [(ngModel)]="disp.eq" name="eq" type="text">
+          </mat-form-field>
+          <mat-form-field class="input-25-width">
+            <input matInput placeholder="Mn" required [(ngModel)]="disp.mn" name="mn" type="text">
+          </mat-form-field>
+          <mat-form-field class="input-25-width">
+            <input matInput placeholder="HF" required [(ngModel)]="disp.hf" name="hf" type="text">
+          </mat-form-field>
+          <mat-form-field class="input-25-width">
+            <input matInput placeholder="Cr" required [(ngModel)]="disp.cr" name="cr" type="text">
+          </mat-form-field>
+          
+          
+          <mat-form-field class="input-25-width">
+            <input matInput placeholder="2Gb" required [(ngModel)]="disp.gb2" name="gb2" type="text">
+          </mat-form-field>
+          <mat-form-field class="input-25-width">
+            <input matInput placeholder="SW" required [(ngModel)]="disp.sw" name="sw" type="text">
+          </mat-form-field>
+          <mat-form-field class="input-25-width">
+            <input matInput placeholder="HW" required [(ngModel)]="disp.hw" name="hw" type="text">
+          </mat-form-field>
+          <button mat-raised-button color="primary" (click)="saveControl(disp, true)">Guardar</button>
+
+        </mat-tab>
+        <mat-tab label="Producto no conforme">
+          <h5>Accesorios Observaciones</h5>      
+          <mat-form-field class="input-50-width">
+            <input matInput placeholder="Observación Caja" required [(ngModel)]="disp.ocaja" name="ocaja" type="text">
+          </mat-form-field>
+          <mat-form-field class="input-50-width">
+            <input matInput placeholder="Observación Carcasa" required [(ngModel)]="disp.ocarcasa" name="ocarcasa" type="text">
+          </mat-form-field>
+          <mat-form-field class="input-50-width">
+            <input matInput placeholder="Observación Tapa posterior" required [(ngModel)]="disp.otapaposterior" name="otapaposterior" type="text">
+          </mat-form-field>
+          <mat-form-field class="input-50-width">
+            <input matInput placeholder="Observación Bateria" required [(ngModel)]="disp.obateria" name="obateria" type="text">
+          </mat-form-field>
+          <mat-form-field class="input-50-width">
+            <input matInput placeholder="Observación Conector, lector de SIM" required [(ngModel)]="disp.osim" name="osim" type="text">
+          </mat-form-field>
+          <mat-form-field class="input-50-width">
+            <input matInput placeholder="Observación Antena" required [(ngModel)]="disp.oantena" name="oantena" type="text">
+          </mat-form-field>
+          <mat-form-field class="input-50-width">
+            <input matInput placeholder="Observación Cargador" required [(ngModel)]="disp.ocargador" name="ocargador" type="text">
+          </mat-form-field>
+          <mat-form-field class="input-50-width">
+            <input matInput placeholder="Observación Adaptador (Carg, Mem)" required [(ngModel)]="disp.oadaptador" name="oadaptador" type="text">
+          </mat-form-field>
+          <mat-form-field class="input-50-width">
+            <input matInput placeholder="Observación Manos libres" required [(ngModel)]="disp.omanoslibres" name="omanoslibres" type="text">
+          </mat-form-field>
+          <mat-form-field class="input-50-width">
+            <input matInput placeholder="Observación Memoria expandible" required [(ngModel)]="disp.omemoriaexpandible" name="omemoriaexpandible" type="text">
+          </mat-form-field>
+          <mat-form-field class="input-50-width">
+            <input matInput placeholder="Observación Manual de Usuario" required [(ngModel)]="disp.omanual" name="omanual" type="text">
+          </mat-form-field>  
+          <mat-form-field class="input-50-width">
+            <input matInput placeholder="Observación Guía rápida" required [(ngModel)]="disp.oguia" name="oguia" type="text">
+          </mat-form-field>
+          <mat-form-field class="input-50-width">
+            <input matInput placeholder="Observación CD Datos" required [(ngModel)]="disp.ocd" name="ocd" type="text">
+          </mat-form-field>
+          <mat-form-field class="input-50-width">
+            <input matInput placeholder="Observación Cable USB" required [(ngModel)]="disp.ousb" name="ousb" type="text">
+          </mat-form-field>
+          <br>
+          
+          <h5>Hardware</h5>
+          
+          <mat-form-field class="input-50-width">
+            <input matInput placeholder="Observación Led flash" required [(ngModel)]="disp.oled" name="oled" type="text">
+          </mat-form-field>
+          <mat-form-field class="input-50-width">
+            <input matInput placeholder="Observación Cámara primaria" required [(ngModel)]="disp.ocamara" name="ocamara" type="text">
+          </mat-form-field>
+          <mat-form-field class="input-50-width">
+            <input matInput placeholder="Observación Display" required [(ngModel)]="disp.odisplay" name="odisplay" type="text">
+          </mat-form-field>
+          <mat-form-field class="input-50-width">
+            <input matInput placeholder="Observación Tornillos" required [(ngModel)]="disp.otornillos" name="otornillos" type="text">
+          </mat-form-field>
+          <mat-form-field class="input-50-width">
+            <input matInput placeholder="Observación Vibrador" required [(ngModel)]="disp.ovibrador" name="ovibrador" type="text">
+          </mat-form-field>
+          <mat-form-field class="input-50-width">
+            <input matInput placeholder="Observación Auricular" required [(ngModel)]="disp.oauricular" name="oauricular" type="text">
+          </mat-form-field>
+          <mat-form-field class="input-50-width">
+            <input matInput placeholder="Observación Altavoz" required [(ngModel)]="disp.oaltavoz" name="oaltavoz" type="text">
+          </mat-form-field>
+          <mat-form-field class="input-50-width">
+            <input matInput placeholder="Observación Micrófono" required [(ngModel)]="disp.omicrofono" name="omicrofono" type="text">
+          </mat-form-field>
+          <mat-form-field class="input-50-width">
+            <input matInput placeholder="Observación Timbre" required [(ngModel)]="disp.otimbre" name="otimbre" type="text">
+          </mat-form-field>
+          <mat-form-field class="input-50-width">
+            <input matInput placeholder="Observación Teclado volúmen" required [(ngModel)]="disp.otvolumen" name="otvolumen" type="text">
+          </mat-form-field>
+          <mat-form-field class="input-50-width">
+            <input matInput placeholder="Observación Teclado (Key Pad)" required [(ngModel)]="disp.oteclado" name="oteclado" type="text">
+          </mat-form-field>
+          <mat-form-field class="input-50-width">
+            <input matInput placeholder="Observación Touch" required [(ngModel)]="disp.otouch" name="otouch" type="text">
+          </mat-form-field>
+          <mat-form-field class="input-50-width">
+            <input matInput placeholder="Observación Tecla ON/OFF" required [(ngModel)]="disp.otonoff" name="otonoff" type="text">
+          </mat-form-field>
+          <br>
+
+          <h5>Software</h5>
+
+          <mat-form-field class="input-50-width">
+            <input matInput placeholder="Observación Video" required [(ngModel)]="disp.ovideo" name="ovideo" type="text">
+          </mat-form-field>
+          <mat-form-field class="input-50-width">
+            <input matInput placeholder="Observación Radio FM" required [(ngModel)]="disp.oradio" name="oradio" type="text">
+          </mat-form-field>
+          <mat-form-field class="input-50-width">
+            <input matInput placeholder="Observación Idioma" required [(ngModel)]="disp.oidioma" name="oidioma" type="text">
+          </mat-form-field>
+          <mat-form-field class="input-50-width">
+            <input matInput placeholder="Observación Internet" required [(ngModel)]="disp.ointernet" name="ointernet" type="text">
+          </mat-form-field>
+          <mat-form-field class="input-50-width">
+            <input matInput placeholder="Observación Bluetooth" required [(ngModel)]="disp.obluetooth" name="obluetooth" type="text">
+          </mat-form-field>
+          <mat-form-field class="input-50-width">
+            <input matInput placeholder="Observación Fallas de software" required [(ngModel)]="disp.ofallas" name="ofallas" type="text">
+          </mat-form-field>
+
+          <h5>Radio Frecuencia</h5>
+          <mat-form-field class="input-50-width">
+            <input matInput placeholder="Observación Señal RF" required [(ngModel)]="disp.orf" name="orf" type="text">
+          </mat-form-field>
+          <mat-form-field class="input-50-width">
+            <input matInput placeholder="Otras Observaciones" required [(ngModel)]="disp.otrasobs" name="otrasobs" type="text">
+          </mat-form-field>
+          
+          <button mat-raised-button color="primary" (click)="saveControl(disp, false)">Guardar</button>
+        </mat-tab>
+      </mat-tab-group>
+      
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

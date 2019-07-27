@@ -1,0 +1,51 @@
+<app-menu [opcion]="lote"></app-menu>
+<div class="content">
+  <h2>Gestión de dispositivos por caja</h2>
+  <mat-progress-bar color="primary" mode="indeterminate" *ngIf="!cargando"></mat-progress-bar>
+  
+  <mat-form-field *ngIf="cargando" class="input-full-width">
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" *ngIf="cargando">
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="i">
+      <th mat-header-cell *matHeaderCellDef> Formulario </th>
+      <td mat-cell *matCellDef="let element"> {{lotes[element.i].formulario}} - {{lotes[element.i].empresa}}</td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="codigo">
+      <th mat-header-cell *matHeaderCellDef> Código de Caja </th>
+      <td mat-cell *matCellDef="let element"> {{element.codigo}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="dispositivos">
+      <th mat-header-cell *matHeaderCellDef> Cnt. de dispositivos </th>
+      <td mat-cell *matCellDef="let element"> {{element.dispositivos.length}} </td>
+    </ng-container>
+    
+    <!-- Weight Column -->
+    <ng-container matColumnDef="tecnico">
+      <th mat-header-cell *matHeaderCellDef> Técnico </th>
+      <td mat-cell *matCellDef="let element"> <span *ngIf="element.tecnico">{{element.tecnico.nombres}} {{element.tecnico.apellidos}}</span> </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="j">
+      <th mat-header-cell *matHeaderCellDef> Acciones </th>
+      <td mat-cell *matCellDef="let element"> 
+          <button mat-button [matMenuTriggerFor]="menu"><mat-icon>more_vert</mat-icon></button>
+          <mat-menu #menu="matMenu">
+            <button *ngIf="user.rol!='técnico'" mat-menu-item (click)="gestionar(element)">Gestionar</button>
+            <button *ngIf="user.rol!='técnico' && element.codigo!=''" mat-menu-item (click)="asignar(element)">Asignar</button>
+            <button *ngIf="element.codigo!=''" mat-menu-item (click)="control(element)">Control de Calidad</button>
+          </mat-menu>  
+      </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>

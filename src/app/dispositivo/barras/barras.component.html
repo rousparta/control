@@ -1,0 +1,7 @@
+
+<div id="imprimir">
+  <div *ngFor="let disp of data.caja" class="barra" id="{{disp.codigo}}">
+    <ngx-barcode [bc-value]="disp.codigo" [bc-display-value]="true"></ngx-barcode>
+  </div>
+</div>
+

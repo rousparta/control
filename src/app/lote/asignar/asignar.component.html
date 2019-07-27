@@ -1,0 +1,21 @@
+<h3 mat-dialog-title>Asignación de Caja
+  <button mat-button mat-dialog-close>X</button>
+</h3>
+<mat-dialog-content>
+  <form role="form" (submit)="guardar()">
+    <mat-form-field class="input-full-width">
+      <mat-label>Técnico</mat-label>
+      <mat-select [(ngModel)]="lote.tecnico" name="tecnico">
+        <mat-option *ngFor="let tecnico of tecnicos" [value]="tecnico">
+          {{tecnico.nombres}} {{tecnico.apellidos}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    
+    <mat-form-field class="input-full-width">
+      <input matInput placeholder="Radio frecuencia del lote" required [(ngModel)]="lote.radiofrecuencia" name="radiofrecuencia">
+    </mat-form-field>
+    
+    <button mat-raised-button color="primary" type="submit">Guardar</button>
+  </form>
+</mat-dialog-content>
