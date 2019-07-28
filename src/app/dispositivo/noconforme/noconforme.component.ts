@@ -7,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NoconformeComponent implements OnInit {
 
-  data=[];
+  data={
+    dispositivos:[]
+  };
   constructor() {
     this.data=JSON.parse(localStorage.getItem('tmpQA'));
-    if(this.data==null) this.data=[];
+    // if(this.data==null) this.data=[];
     //console.log(this.data);
   }
 

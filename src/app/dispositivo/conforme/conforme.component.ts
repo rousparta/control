@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./conforme.component.css']
 })
 export class ConformeComponent implements OnInit {
-  data=[];
+  data={
+    dispositivos:[]
+  };
   constructor() {
     this.data=JSON.parse(localStorage.getItem('tmpQA'));
-    if(this.data==null) this.data=[];
+    // if(this.data==null) this.data = {}
   }
 
   ngOnInit() {

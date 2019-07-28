@@ -7,11 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CertificadoComponent implements OnInit {
 
-  data=[];
+  data={
+    dispositivos:[]
+  };
+
   ahora = new Date();
   constructor() {
     this.data=JSON.parse(localStorage.getItem('tmpQA'));
-    if(this.data==null) this.data=[];
+    // if(this.data==null) this.data=[];
     console.log(this.data);
   }
 
